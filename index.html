@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>System Boot - CV Interface</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #00ffcc;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    .terminal {
+      width: 80%;
+      max-width: 600px;
+      background-color: #111;
+      border: 2px solid #00ffcc;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffcc33;
+    }
+
+    .line {
+      margin: 10px 0;
+      white-space: pre;
+    }
+
+    #progress {
+      width: 100%;
+      background: #222;
+      border-radius: 5px;
+      margin-top: 20px;
+      height: 20px;
+      overflow: hidden;
+    }
+
+    #bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #00ffcc, #00ffff);
+      animation: load 5s forwards;
+    }
+
+    @keyframes load {
+      to { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal" id="terminal">
+    <div class="line">[>] Initializing CV interface...</div>
+  </div>
+
+  <div id="progress">
+    <div id="bar"></div>
+  </div>
+
+  <script>
+    const terminal = document.getElementById('terminal');
+    const messages = [
+      "[✔] Checking for updates...",
+      "[✔] Loading webpage...",
+      "[✔] Verifying credentials...",
+      "[✔] Fetching latest projects...",
+      "[✔] Boot sequence complete.",
+      "[>] Redirecting to main interface..."
+    ];
+
+    let index = 0;
+    const delay = 800;
+
+    function addMessage() {
+      if (index < messages.length) {
+        const line = document.createElement("div");
+        line.className = "line";
+        line.textContent = messages[index];
+        terminal.appendChild(line);
+        index++;
+        setTimeout(addMessage, delay);
+      } else {
+        // Redirect after final message
+        setTimeout(() => {
+          window.location.href = "cv.html"; // Change this to your actual CV page
+        }, 2000);
+      }
+    }
+
+    setTimeout(addMessage, delay);
+  </script>
+</body>
+</html>
