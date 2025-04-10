@@ -49,17 +49,46 @@
       gap: 1rem;
     }
 
-    .card {
+    .flip-card {
+      background-color: transparent;
+      perspective: 1000px;
+      height: 160px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
       background: #1a1a2e;
       border: 1px solid #00fff7;
       border-radius: 10px;
       padding: 1rem;
       box-shadow: 0 0 10px #00fff722;
-      transition: transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
+    .card-back {
+      transform: rotateY(180deg);
+      font-size: 0.9rem;
+      color: #fff;
     }
 
     .experience {
@@ -85,37 +114,137 @@
       background: #00cfc7;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('click', () => card.classList.toggle('flipped'));
+      });
+    });
+  </script>
 </head>
 <body>
   <header>
-    <h1>John Doe</h1>
-    <p>Cybersecurity | Forensics | Creative Technologist</p>
+    <h1>Hughes Cedric Pascal Lacharmante</h1>
+    <p>Cybersecurity | Digital Forensics | Creative Technologist | IT Engineer | Ethical Hacker | IT Support</p>
   </header>
 
   <main>
     <section>
       <h2><i class="fa-solid fa-user-astronaut"></i> About Me</h2>
-      <p>I’m a passionate cybersecurity student with a focus on digital forensics and system automation. I love building tools, exploring tech, and constantly evolving my skillset.</p>
+      <p>
+        I’m a passionate cybersecurity student with a focus on digital forensics and system automation. 
+        I love building tools, exploring tech, constantly evolving my skillset and with a background in managing IT infrastructure and supporting
+        end-users. Known for reliability and adaptability in dynamic environments.Focused on fostering teamwork and achieving optimal results through
+        effective collaboration. Skilled in system administration, network
+        management, and technical support
+      </p>
     </section>
 
     <section>
       <h2><i class="fa-solid fa-laptop-code"></i> Skills</h2>
       <div class="skills">
-        <div class="card">Python</div>
-        <div class="card">HTML/CSS/JS</div>
-        <div class="card">PowerShell</div>
-        <div class="card">Git & GitHub</div>
-        <div class="card">Cybersecurity</div>
-        <div class="card">Digital Forensics</div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Python Programming</div><div class="card-back">Certificate: Yes<br>Started with automation scripts<br><a href="#">View Certificate</a></div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">C & Java</div><div class="card-back">Basic knowledge<br>Learned during diploma</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">HTML / CSS / JavaScript</div><div class="card-back">Self-taught<br>Used to build this CV site</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">PowerShell</div><div class="card-back">Automation scripting<br>Used for local automation</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">SQL Server</div><div class="card-back">Basic data queries<br>Used during support tasks</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Git & GitHub</div><div class="card-back">Version control<br>Personal projects & collabs</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Cybersecurity</div><div class="card-back">Diploma + Certifications<br>Core field of study</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Digital Forensics</div><div class="card-back">Ongoing learning<br>Future career goal</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Ethical Hacking</div><div class="card-back">Hands-on labs<br>Udemy & TryHackMe</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Networking & Internetworking</div><div class="card-back">Fundamentals + practice<br>Support experience</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">IT Auditing & Risk Management</div><div class="card-back">Basic knowledge<br>Learned via self-study</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Incident Management</div><div class="card-back">On-call readiness<br>Part of current job</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Active Directory</div><div class="card-back">User & group mgmt<br>Daily job task</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Remote Desktop & Help Desk</div><div class="card-back">End-user support<br>Current & past roles</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">IT Documentation</div><div class="card-back">System & process docs<br>Improving quality</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Software Development (Basic)</div><div class="card-back">Python, Web dev basics<br>Personal learning</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Climate Fresk Ambassador</div><div class="card-back">Certified by Orange Business<br>Trainer & awareness</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">SQL</div><div class="card-back">Queries, joins, basics<br>Used in support & school</div></div></div>
+        <div class="flip-card"><div class="flip-card-inner"><div class="card-front">Business English</div><div class="card-back">Customer service<br>Certified course</div></div></div>
       </div>
     </section>
 
     <section>
       <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
       <div class="experience">
-        <strong>Junior Support Engineer - Total Energies</strong> <br/>
-        Mar 2025 – Present<br/>
-        <p>Providing client support, running smoke/sanity tests, and supporting deployments across environments. Preparing to join on-call rotations and improve automation workflows.</p>
+        <strong>Support Agent - Total Energies (TEMSI)</strong> <br/>
+        February 2025 – Present<br/>
+        <p>
+          Providing client support, running smoke/sanity tests, and supporting deployments across environments. Preparing to join on-call rotations and improve automation workflows.
+        </p>
+
+        <strong>Assistant IT Administrator - LUX* Grand Baie</strong> <br/>
+        November 2024 – January 2025<br/>
+        <ul>
+          <li>Managed inventory of hardware assets, ensuring timely replacement or repair when needed.</li>
+          <li>Assisted in migrating applications to the cloud, resulting in cost savings and improved accessibility for remote users.</li>
+          <li>Optimized server hardware and software configurations, leading to improved system stability and performance.</li>
+          <li>Streamlined IT processes for increased efficiency through automation of repetitive tasks.</li>
+          <li>Implemented new technologies that improved overall productivity across the company's departments.</li>
+          <li>Championed best practices in cybersecurity, minimizing risks associated with potential breaches or attacks on company networks and systems.</li>
+          <li>Contributed to the successful completion of multiple IT projects by providing technical support and expertise.</li>
+          <li>Coordinated software upgrades and patches, ensuring minimal disruption to end-users during deployment.</li>
+          <li>Developed comprehensive documentation for IT procedures, facilitating knowledge transfer among team members.</li>
+          <li>Enhanced network performance by implementing regular maintenance routines and updates.</li>
+          <li>Reduced downtime by proactively identifying and resolving IT issues before they became critical.</li>
+          <li>Provided excellent customer service by promptly addressing user requests and troubleshooting technical issues.</li>
+        </ul>
+      
+        <strong>Technical Support Specialist - Orange Business</strong> <br/>
+        September 2023 – November 2024<br/>
+        <ul>
+          <li>Streamlined IT processes for increased efficiency and reduced downtime.</li>
+          <li>Diagnosed complex technical problems, saving time and resources by providing effective solutions quickly.</li>
+          <li>Employed remote support tools effectively for efficient troubleshooting of offsite issues.</li>
+          <li>Served as a reliable escalation point for complex technical issues requiring advanced expertise or collaboration with other departments within the organization.</li>
+          <li>Developed comprehensive documentation for internal knowledge base, promoting self-service resolution for common issues.</li>
+          <li>Participated in disaster recovery planning efforts, enabling quick restoration of critical services following unforeseen events.</li>
+          <li>Enhanced system performance by identifying and resolving technical issues promptly.</li>
+          <li>Reduced support tickets through proactive maintenance of hardware, software, and systems.</li>
+          <li>Leveraged monitoring tools to proactively identify potential system challenges before they escalated into major incidents.</li>
+          <li>Monitored systems in operation and quickly troubleshot errors.</li>
+          <li>Translated complex technical issues into digestible language for non-technical users.</li>
+          <li>Assisted customers in identifying issues and explained solutions to restore service and functionality.</li>
+          <li>Managed high levels of call flow and responded to Type technical support needs.</li>
+          <li>Collaborated with cross-functional teams to develop and implement IT solutions.</li>
+          <li>Trained end-users on best practices for system usage, increasing their productivity and confidence in utilizing technology tools.</li>
+          <li>Entrusted by management to handle escalated tickets, manage difficult customers, and oversee three operations simultaneously.</li>
+          <li>Built a tool to track ticket history, enhancing team efficiency and enabling quicker resolution of recurring issues.</li>
+        </ul>
+      
+        <strong>IT Support - One and Only Le Saint Géran</strong> <br/>
+        July 2022 – August 2023<br/>
+        <ul>
+          <li>Answered user questions about hardware and software operation to help resolve problems.</li>
+          <li>Scanned systems, diagnosing and correcting equipment failures and performance issues.</li>
+          <li>Tested function of peripheral equipment and completed quality repairs.</li>
+          <li>Followed technical documentation for accurate installation, maintenance and repair work.</li>
+          <li>Tracked computer system and network performance to identify root causes of issues.</li>
+          <li>Prepared equipment for staff use, installing cables, operating systems, and software.</li>
+          <li>Followed manufacturing instructions and design specifications when completing repairs.</li>
+          <li>Conducted server back-up and recovery operations in line with protocols.</li>
+          <li>Installed new software for users and monitored version and patch update requirements.</li>
+          <li>Updated and improved web pages for relevancy and accuracy.</li>
+          <li>Established and troubleshot network and data communications systems.</li>
+          <li>Carried out new hardware installations and updates, keeping systems functional and secure.</li>
+        </ul>
+      
+        <strong>IT Support Technician (Voluntary) - Cypres Handicap Association</strong> <br/>
+        September 2021 – October 2021<br/>
+        <ul>
+          <li>Performed Planned Preventative Maintenance, repairs and technical upgrades for well-mobilised operational teams.</li>
+          <li>Building of 2 PC for the directors.</li>
+        </ul>
+      
+        <strong>Sales Advisor - Young Bros Ltd (Summer Job)</strong> <br/>
+        December 2015 – December 2021<br/>
+        <ul>
+          <li>Part timer there for 5–6 years on school vacations.</li>
+          <li>Banking (at times).</li>
+          <li>Delivery and receiving assistance.</li>
+        </ul>
+        
       </div>
     </section>
 
@@ -142,5 +271,24 @@
       </a>
     </section>
   </main>
+
+  <footer style="background:#0d0d0d; color:#00fff7; text-align:center; padding:2rem; border-top:1px solid #00fff7; font-size:0.9rem;">
+    <p>
+      © 2025 <strong>Hughes Pascal Cedric Lacharmante</strong><br/>
+      Founder & Creator of <strong>HawkLab</strong>
+    </p>
+    <p style="margin-top: 1rem;">
+      <a href="https://hawklab.net" target="_blank" style="color:#00fff7; text-decoration:none;">
+        <i class="fas fa-globe"></i> hawklab.net
+      </a> &nbsp;|&nbsp;
+      <a href="mailto:hawklab.bot@hawklab.net" style="color:#00fff7; text-decoration:none;">
+        <i class="fas fa-envelope"></i> hawklab.bot@hawklab.net
+      </a> &nbsp;|&nbsp;
+      <a href="https://wa.me/23058548541" target="_blank" style="color:#00fff7; text-decoration:none;">
+        <i class="fab fa-whatsapp"></i> +230 5854 8541
+      </a>
+    </p>
+  </footer>
+  
 </body>
 </html>
